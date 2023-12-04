@@ -3,6 +3,7 @@ import { useState } from "react";
 import ChuckCard from "./components/chuck_card";
 import ChuckInfo from "./components/chuck_info";
 import Joke from "./joke";
+import ChuckJoke from "./components/chuck_joke";
 
 function App() {
   const [chuckGreeting, setChuckGreeting] = useState<string>(
@@ -29,15 +30,16 @@ function App() {
     },
   ]);
 
+  const jokeComponents = jokes.map((j) => <ChuckJoke joke={j} />);
+
   return (
     <div className="App">
       <h1>React props and state</h1>
       <ChuckCard chuckGreeting={chuckGreeting} />
-
       <h2>Chuck Info: </h2>
       <ChuckInfo whalesSaved={whalesSaved} roundHouseKicks={roundHouseKicks} />
-
       <h2>Jokes: </h2>
+      {jokeComponents}
     </div>
   );
 }
