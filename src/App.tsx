@@ -30,7 +30,7 @@ function App() {
     },
   ]);
 
-  const jokeComponents = jokes.map((j) => <ChuckJoke joke={j} />);
+  const jokeComponents = jokes.map((j) => <ChuckJoke joke={j} key={j.id} />);
 
   return (
     <div className="App">
