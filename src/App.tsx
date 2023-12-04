@@ -31,6 +31,9 @@ function App() {
   ]);
 
   const jokeComponents = jokes.map((j) => <ChuckJoke joke={j} key={j.id} />);
+  const filteredJokesComponent = jokes
+    .filter((j) => j.id === 3)
+    .map((j) => <ChuckJoke joke={j} key={j.id} />);
 
   return (
     <div className="App">
@@ -40,6 +43,8 @@ function App() {
       <ChuckInfo whalesSaved={whalesSaved} roundHouseKicks={roundHouseKicks} />
       <h2>Jokes: </h2>
       {jokeComponents}
+      <h2>Filtered Jokes</h2>
+      {filteredJokesComponent}
     </div>
   );
 }
